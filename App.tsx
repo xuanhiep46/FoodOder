@@ -1,40 +1,38 @@
 import { useState } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { Button, StyleSheet, Text, TextInput, View } from 'react-native';
 
 export default function App() {
 
-  //typeScript
   //State---
-  //data-type
-  const[name, setName] = useState<string>("xuanhiep"); //string --- dùng nhiều nhất
+  const[name, setName] = useState<string>("xuanhiep");
 
-  const[age, setAge] = useState<number>(0); //number
-
-  //null, undefined, boolean
-  const test = false;
-
-  //object---
-  const[person, setPerson] = useState<({ //Kh ép kiểu vào, typeScript sẽ tự đoán luôn
-    name: "xuanhiep",
-    age: 20
-  })>({
-    name: "xuanhiep",
-    age: 20
-  }); 
-
-  //array---
-  const[person1, setPerson1] = useState([6, 9]); 
+  
 
   return (
     <View style={styles.container}>
       <Text>Hello world</Text>
       <View>
+
+        <TextInput 
+        onChangeText={value => setName(value)}
+        // value='xuanhiep' //hard code, set cứng
+        value = {name}
+        //Các thuộc tính hay dùng của bàn phím---
+        autoCapitalize='none' //tính năng viết hoa
+        autoCorrect = {false} //tự động chỉnh chính tả
+        // keyboardType='numeric' //kiểu bàn phím
+        // maxLength={8} //giới hạn ký tự
+        multiline={true} //đoạn văn bản, tự động xuống dòng khi người dùng viết
+
+        style= {{
+          borderColor: "violet",
+          borderWidth: 1,
+          padding: 10
+        }} /> 
         <Text style={styles.text}> {name} </Text>
-        <Text style={styles.text}> {age} </Text>
-        <Text style={styles.text}> {person.age} </Text>
-        <Text style={styles.text}> {JSON.stringify(person1)} </Text> /* nên convert nó qua dạng string */
-        <Text style={styles.text}> {JSON.stringify(person)} </Text> /*chuyển sang dang string*/ 
       </View>
+
+      <Button title='Add new'/>
     </View>
   );
 }
@@ -46,6 +44,7 @@ const styles = StyleSheet.create({
     // alignItems: 'center',
     // justifyContent: 'center',
     paddingHorizontal: 20,
+    top: 30,
   },
   text: {}
 });
