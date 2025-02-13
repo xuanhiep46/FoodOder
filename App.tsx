@@ -15,6 +15,11 @@ export default function App() {
     setTodoList([...todoList, todo]) 
   }
 
+  const deleteTodo = (id: number) => {
+    const newTodo = todoList.filter(todo => todo.id != id); //Lọc id, giữ lại khác id mà bạn muốn xóa
+    setTodoList(newTodo); //cập nhật lại danh sách todo
+  }
+
   return (
     <TouchableWithoutFeedback
     onPress={() => Keyboard.dismiss()}> {/* Đóng khi click ra ngoài */}
@@ -24,6 +29,7 @@ export default function App() {
         />
         <ListTodo
           todoList = {todoList}
+          deleteTodo = {deleteTodo} //phải khai báo bên file listTodo không là sẽ lỗi
         />
       </View>
     </TouchableWithoutFeedback>
@@ -44,5 +50,5 @@ const styles = StyleSheet.create({
 /*
 Tổng kết bài học---
 1. Trang trí phần thông báo Aleart
-2. 
+2. Tắt bàn phìm khi bấm ra ngoài
 */

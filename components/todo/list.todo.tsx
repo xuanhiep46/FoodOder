@@ -1,10 +1,11 @@
-import { Button, FlatList, ScrollView, StyleSheet, Text, TextInput, View } from 'react-native';
+import { Button, FlatList, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 
 interface iProps {
     todoList: ITodo[];
+    deleteTodo: (value: number) => void;
 }
 const ListTodo = (props: iProps) => { 
-  const { todoList } = props;
+  const { todoList, deleteTodo} = props; //khai báo để sử dụng
   console.log(todoList)
   return (
     <>
@@ -18,10 +19,13 @@ const ListTodo = (props: iProps) => {
         keyExtractor={item => item.id + ""}
         renderItem = {({item}) => { 
           return (
+            <TouchableOpacity>
             <Text key={item.id} style={styles.todo}
+            onPress={() => deleteTodo(item.id)}
             >
             {item.name}
             </Text>
+            </TouchableOpacity>
           )
         }}
       />
