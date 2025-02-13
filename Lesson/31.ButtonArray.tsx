@@ -22,7 +22,6 @@ export default function App() {
 
   return (
     <View style={styles.container}>
-      {/* <Text>Hello world</Text> */}
       <View>
 
         <TextInput 
@@ -42,7 +41,6 @@ export default function App() {
 
       <Button 
       title='Add new' 
-      color={"green"}
       onPress={() => alert("tap me")}
       />
 

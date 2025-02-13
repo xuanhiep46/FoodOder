@@ -53,7 +53,7 @@ export default function App() {
         }}
         data={todoList}
         keyExtractor={item => item.id + ""}
-        //dùng keyExtractor để chỉ định key là id luôn thay vì cho nó tạo ngẫu nhiên, '+ với "" ' để convert nó sang kiểu string
+        //dùng keyExtractor để chỉ định key là id luôn thay vì cho nó mặc định là tạo ra key ngẫu nhiên, ' + với "" ' để convert nó sang kiểu string
         //bject destructuring
         renderItem = {({item}) => { //{item} = data.item, nó ngắn hơn
           return (
@@ -72,8 +72,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    // alignItems: 'center',
-    // justifyContent: 'center',
     paddingHorizontal: 20,
     marginTop: 30,
   },

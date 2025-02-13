@@ -1,9 +1,41 @@
 import { useState } from "react";
-import { Button, StyleSheet, TextInput, View } from "react-native";
+import { Alert, Button, StyleSheet, TextInput, View } from "react-native";
 
-const InputTodo = () => {
+interface IProps {
+    addTodo: (value: string) => void;
+}
+
+const InputTodo = (props: IProps) => {
+    const {addTodo} = props;
     const[name, setName] = useState<string>("");
 
+    const handleAddNewTodo = () => {
+        //validate
+        // if (!name) {
+        //     alert("Empty todo");
+        //     return; //dừng lại và không thực thi lệnh ở bên dưới ('addTodo', 'setName')
+        // }
+        if (!name) {
+            Alert.alert(
+                "Thông tin không hợp lệ", //title
+                "Tiêu đề không được để trống", //content
+                [   
+                    //Nút Cancel---
+                    // {
+                    //   text: 'Cancel',
+                    //   onPress: () => console.log('Cancel Pressed'),
+                    //   style: 'cancel',
+                    // },
+
+                    //Nút Okey---
+                    {text: 'OK cậu ơi', onPress: () => console.log('OK Pressed')},
+                  ]
+            )
+            return; 
+        }
+        addTodo(name); 
+        setName("");
+    }
     return (
         // fragment
         <>
@@ -19,7 +51,7 @@ const InputTodo = () => {
 
                 <Button 
                     title='Add new' 
-                    onPress={() => alert("tap me")}
+                    onPress={handleAddNewTodo} 
                 />
             </View>
         </>

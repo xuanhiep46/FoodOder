@@ -3,8 +3,9 @@ import { Button, FlatList, ScrollView, StyleSheet, Text, TextInput, View } from 
 interface iProps {
     todoList: ITodo[];
 }
-const ListTodo = (props: iProps) => { //kh nên dùng any -> tắt type đi
+const ListTodo = (props: iProps) => { 
   const { todoList } = props;
+  console.log(todoList)
   return (
     <>
       <FlatList    
