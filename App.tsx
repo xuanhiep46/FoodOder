@@ -49,6 +49,5 @@ const styles = StyleSheet.create({
 
 /*
 Tổng kết bài học---
-1. Trang trí phần thông báo Aleart
-2. Tắt bàn phìm khi bấm ra ngoài
+1. Xóa todo
 */

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Alert, Button, StyleSheet, TextInput, View } from "react-native";
+import MineButton from "../button/mine.button";
 
 interface IProps {
     addTodo: (value: string) => void;
@@ -39,7 +40,7 @@ const InputTodo = (props: IProps) => {
     return (
         // fragment
         <>
-            <View>
+            <View style={{marginBottom: 20}}>
                 <TextInput 
                     onChangeText={value => setName(value)}
                     value = {name}
@@ -49,10 +50,18 @@ const InputTodo = (props: IProps) => {
                     style= {styles.todoInput} 
                 /> 
 
-                <Button 
+                
+
+                {/* <Button 
                     title='Add new' 
                     onPress={handleAddNewTodo} 
+                /> */}
+
+                <MineButton 
+                title= "add new"
+                onPress = {handleAddNewTodo}
                 />
+
             </View>
         </>
     )
